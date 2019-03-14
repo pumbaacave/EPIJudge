@@ -1,4 +1,5 @@
 import functools
+import random
 
 from test_framework import generic_test
 from test_framework.random_sequence_checker import (
@@ -8,8 +9,12 @@ from test_framework.test_utils import enable_executor_hook
 
 
 def random_sampling(k, A):
+    # inplace
     # TODO - you fill in here.
-    return
+    L = len(A)
+    for i in range(k):
+        idx = random.randrange(i, L)
+        A[i], A[idx] = A[idx], A[i]
 
 
 @enable_executor_hook
